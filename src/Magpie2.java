@@ -10,50 +10,58 @@
  * @author Laurie White
  * @version April 2012
  */
-public class Magpie2
-{
-	/**
-	 * Get a default greeting 	
-	 * @return a greeting
-	 */
-	public String getGreeting()
-	{
-		return "Hello, let's talk.";
-	}
-	
-	/**
-	 * Gives a response to a user statement
-	 * 
-	 * @param statement
-	 *            the user statement
-	 * @return a response based on the rules given
-	 */
-	public String getResponse(String statement)
-	{
-		String response = "";
-		if (statement.indexOf("no") >= 0)
-		{
-			response = "Why so negative?";
-		}
-		else if (statement.indexOf("dog") >= 0
-				|| statement.indexOf("cat") >= 0
-				|| statement.indexOf("fish") >= 0
-				|| statement.indexOf("lizard") >= 0)
-		{
-			response = "Tell me more about your pets.";
-		}
-		else
-		{
-			response = getRandomResponse();
-		}
-		return response;
-	}
+public class Magpie2 {
+    /**
+     * Get a default greeting
+     *
+     * @return a greeting
+     */
+    public String getGreeting() {
+        return "Hello, let's talk.";
+    }
+
+    /**
+     * Gives a response to a user statement
+     *
+     * @param statement the user statement
+     * @return a response based on the rules given
+     */
+    public String getResponse(String statement) {
+        String response = "";
+        if (statement.indexOf("no") >= 0) {
+            response = "Why so negative?";
+        } else if (statement.indexOf("dog") >= 0
+                || statement.indexOf("cat") >= 0
+                || statement.indexOf("fish") >= 0
+                || statement.indexOf("lizard") >= 0) {
+            response = "Tell me more about your pets.";
+        } else if (statement.indexOf("Mr.") >= 0) {
+            response = "He sounds like a good teacher.";
+        } else if (statement.indexOf("Mrs.") >= 0
+                || statement.indexOf("Miss") >= 0) {
+            response = "She sounds like a good teacher.";
+        } else if (statement.length() == 0)
+
+            response = "Say something, please.";
+          else if (statement.indexOf("bike") >= 0)
+            response = "can you ride a bike?";
+          else if (statement.indexOf("house") >= 0)
+            response = "tell me about your home.";
+
+        else {
+            response = getRandomResponse();
+        }
+
+        return response;
+    }
+
+
 
 	/**
 	 * Pick a default response to use if nothing else fits.
 	 * @return a non-committal string
 	 */
-	private String getRandomResponse()
+	    private String getRandomResponse()
 	{
 		final int NUMBER_OF_RESPONSES = 4;
 		double r = Math.random();
