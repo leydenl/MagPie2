@@ -44,9 +44,11 @@ public class Magpie2 {
 
             response = "Say something, please.";
           else if (statement.indexOf("bike") >= 0)
-            response = "can you ride a bike?";
+            response = "Can you ride a bike?";
           else if (statement.indexOf("house") >= 0)
-            response = "tell me about your home.";
+            response = "Tell me about your home.";
+          else if (statement.indexOf("car") >= 0)
+            response = "Can you drive?";
 
         else {
             response = getRandomResponse();
@@ -63,7 +65,7 @@ public class Magpie2 {
 	 */
 	    private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -84,7 +86,15 @@ public class Magpie2 {
 		{
 			response = "You don't say.";
 		}
+        else if (whichResponse == 4)
+        {
+            response = "Wow really!";
+        }
+		else if (whichResponse == 5)
+        {
+            response = "cool.";
+        }
 
-		return response;
+        return response;
 	}
 }
